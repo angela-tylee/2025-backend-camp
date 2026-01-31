@@ -10,6 +10,7 @@ function isNotValidSting (value) {
 }
 
 class SkillController {
+  // Read
   static async getAll (req, res, next) {
     try {
       const skill = await dataSource.getRepository('Skill').find({
@@ -25,6 +26,7 @@ class SkillController {
     }
   }
 
+  // Create
   static async postSkill (req, res, next) {
     try {
       const { name } = req.body
@@ -62,6 +64,7 @@ class SkillController {
     }
   }
 
+  // Delete
   static async delete (req, res, next) {
     try {
       const skillId = req.url.split('/').pop()
