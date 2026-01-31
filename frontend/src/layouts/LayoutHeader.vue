@@ -8,7 +8,7 @@
             @click="closeMobileMenu"
             class="flex items-center"
           >
-            <img src="/logo-text.png" alt="LiveFit+" class="h-6 w-auto" />
+            <img src="/logo-text-v2.png" alt="LiveFit+" class="h-6 w-auto" />
             <span class="sr-only">LiveFit+</span>
           </router-link>
         </h1>
@@ -181,7 +181,7 @@
             </li>
             <li v-if="name">
               <button
-                @click="closeMobileMenu(), logout()"
+                @click="(closeMobileMenu(), logout())"
                 class="inline-block py-2 text-neutral-300 hover:text-primary-0 transition-all font-medium text-base leading-[150%] w-full text-left"
               >
                 登出
@@ -195,11 +195,11 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { storeToRefs } from "pinia";
-import { useRouter } from "vue-router";
-import { useUserStore } from "../stores/user.js";
-import { removeCookie } from "../utils/cookie.js";
+import { storeToRefs } from 'pinia';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useUserStore } from '../stores/user.js';
+import { removeCookie } from '../utils/cookie.js';
 
 const router = useRouter();
 const { name, role } = storeToRefs(useUserStore());
@@ -208,9 +208,9 @@ const { setCurrentUser } = useUserStore();
 const isMobileMenuOpen = ref(false);
 
 function logout() {
-  removeCookie("token");
-  setCurrentUser({ name: "", role: "" });
-  router.push("/");
+  removeCookie('token');
+  setCurrentUser({ name: '', role: '' });
+  router.push('/');
 }
 
 const toggleMobileMenu = () => {
